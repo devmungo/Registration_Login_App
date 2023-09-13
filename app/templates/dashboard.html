@@ -8,13 +8,13 @@
 
         <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/lux/bootstrap.min.css"/>
 
-        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
     </head>
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
 
-        <a class="navbar-brand main-heading"> 
+        <a class="navbar-brand main-heading" href="{% url 'index' %}"> 
                 
-          &nbsp; Dashboard
+          &nbsp; Tech Tools
         
         </a>
         <button
@@ -51,8 +51,105 @@
         <br>
   
         <div class="text-center container">
-            <h1>Welcome to your dashboard!</h1>
+            <h1>Assets</h1>
         </div>
+
+       
+        <!-- Table -->
+<div class="table_responsive">
+  <table>
+      <thead>
+          <tr>
+              <th>Number</th>
+              <th>Device</th>
+              <th>Identification</th>
+         
+              <th>Status</th>
+          </tr>
+      </thead>
+
+      <tbody>
+
+          <tr>
+              <td>1</td>
+              <td>
+                  HP Laptop
+              </td>
+              <td>Serial Number:4CE0460D0G</td>
+      
+              <td>
+              <form method="POST" action="">
+                  {% csrf_token %}
+                  <span class="action_btn">
+                          <input type="submit" value = "Not Returned" class = 'btn btn-primary'>
+                
+                  </span>
+              
+              </form>
+              </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>
+                Phone
+            </td>
+            <td>Serial number:22-333333-44444-5</td>
+    
+            <td>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <span class="action_btn">
+                        <input type="submit" value = "Not Returned" class = 'btn btn-primary'>
+              
+                </span>
+            
+            </form>
+            </td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>
+            Connectivity devices
+          </td>
+          <td>Serial Number:4CE0460D0G</td>
+  
+          <td>
+          <form method="POST" action="">
+              {% csrf_token %}
+              <span class="action_btn">
+                      <input type="submit" value = "Not Returned" class = 'btn btn-primary'>
+            
+              </span>
+          
+          </form>
+          </td>
+      </tr>
+
+      
+      <tr>
+        <td>4</td>
+        <td>
+          Screens
+        </td>
+        <td>Serial number:22-333333-44444-5</td>
+
+        <td>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <span class="action_btn">
+                    <input type="submit" value = "Not Returned" class = 'btn btn-primary'>
+          
+            </span>
+        
+        </form>
+        </td>
+    </tr>
+
+      </tbody>
+  </table>
+</div>
+       
   
   
       </body>

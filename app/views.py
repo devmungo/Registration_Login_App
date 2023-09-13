@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login
 
 from django.contrib.auth.decorators import login_required
 
+from django.contrib import messages
 
 # Create your views here.
 
@@ -22,6 +23,7 @@ def registration(request):
         form = CreateUserForm(request.POST)
 
         print("We got here")
+        
 
         if form.is_valid():
 
@@ -42,8 +44,6 @@ def login(request):
 
         form = LoginForm(request.POST, data=request.POST)
 
-        print("before checking the form was valid")
-
         if form.is_valid():
 
             username = request.POST.get('username')
@@ -56,6 +56,10 @@ def login(request):
 
                 return redirect("dashboard")
 
+        #Use this to display an error
+        # messages.error(request, "The are no faces detected in the picture.")
+        # return redirect("index")
+
     context = {'form': form}
 
     return render(request, 'login.html', context=context)
@@ -66,9 +70,9 @@ def dashboard(request):
 
     return render(request, 'dashboard.html')
 
-
 def logout(request):
 
     auth.logout(request)
 
+    messages.success(request, "Logout success!")
     return redirect("index")

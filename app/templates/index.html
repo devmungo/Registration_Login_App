@@ -12,7 +12,7 @@
     
     <!-- Navigation Bar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
-        <a class="navbar-brand main-heading">&nbsp; Vino </a>
+        <a class="navbar-brand main-heading" href="{% url 'index' %}">&nbsp; Tech Tools </a>
     
         <button
           class="navbar-toggler"
@@ -33,9 +33,9 @@
 
               &nbsp;&nbsp;&nbsp; 
 
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="btn btn-primary navbar-btn" type="button"  href="{% url 'registration' %}">Register</a>
-              </li>
+              </li> -->
 
               &nbsp;&nbsp;&nbsp; 
               
@@ -49,19 +49,56 @@
           </div>
     </nav>
 
+    {% for message in messages %}
+
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+
+            <h6 id="message-timer" class="alert alert-success text-center"> <i class="fa fa-sign-out" aria-hidden="true"></i> &nbsp; {{message}} </h6>
+
+
+        {% endif %}
+
+        
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+
+            <h6 id="message-timer" class="alert alert-danger text-center"> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> &nbsp; {{message}} </h6>
+
+        {% endif %}
+
+
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+
+            <h6 id="message-timer" class="alert alert-success text-center"> <i class="fa fa-check-circle" aria-hidden="true"></i> &nbsp; {{message}} </h6>
+
+        {% endif %}
+
+
+    {% endfor %}
+
+
+        <!-- Introduction section -->
+  <div class="header-intro">
+    <div class="text-box-intro text-center">
+      <h1></h1>
+      <a href="">Digital Asset Management</a>
+    </div>
+  </div>
+
     <!-- Banner -->
     <div class="text-center">
         <br><br><br>
 
-        <h1>This is the home page</h1>
+        <h1>Copyright &copy; 2023</h1>
         <br><br>
-        <a href="" class="btn btn-primary">Register</a>
+        <!-- <a href="" class="btn btn-primary">Register</a> -->
     </div>
 
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script src="{% static 'app.js' %}"></script>
 
 </body>
 </html>
